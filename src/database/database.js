@@ -9,6 +9,9 @@ const database  = new Sequelize(
     }
 )
 
-database.sync()
+
 
 module.exports = database
+
+require("../models/tarefas")
+database.sync()

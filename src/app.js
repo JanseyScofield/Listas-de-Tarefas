@@ -1,10 +1,10 @@
 require("dotenv").config({path:".env"})
 const express  =  require("express")
-const router = require("./routes/tarefas")
+const routerTarefas = require("./routes/tarefas")
 require("./database/database")
 const app = express()
 app.use(express.json())
-app.use("/tarefas", router)
+app.use("/tarefas", routerTarefas)
 
 
 app.listen(process.env.PORTA, console.log(`Está escutando na porta ${process.env.PORTA}.`))
