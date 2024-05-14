@@ -3,7 +3,7 @@ const controllers = require("../controllers/tarefas")
 const router  =  express.Router()
 
 router.get("/", controllers.list)
-//router.post
-// router.put
+router.post("/", controllers.create)
+// router.put("/",controllers.update)
 // router.delete
 module.exports = router

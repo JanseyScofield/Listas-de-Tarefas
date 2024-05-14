@@ -1,5 +1,12 @@
+let lista = []
+
 function list(){
-    return "Hello, World!"
+    return lista
 }
 
-module.exports = {list}
+function create(req){
+    lista.push(req)
+}
+
+
+module.exports = {list, create}
