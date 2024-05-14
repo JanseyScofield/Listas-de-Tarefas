@@ -11,6 +11,11 @@ const Tarefas = database.define("tarefas",{
         type  : Sequelize.STRING,
         allowNull  : false
     },
+    responsavel: {
+        type  : Sequelize.STRING,
+        allowNull : false
+
+    },
     descricao:{
         type : Sequelize.STRING,
         allowNull: true
