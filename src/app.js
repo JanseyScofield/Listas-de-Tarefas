@@ -1,6 +1,7 @@
 require("dotenv").config({path:".env"})
 const express  =  require("express")
 const router = require("./routes/tarefas")
+require("./database/database")
 const app = express()
 app.use(express.json())
 app.use("/tarefas", router)
