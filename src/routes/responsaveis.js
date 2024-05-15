@@ -1,5 +1,5 @@
 const express  = require("express")
-const controllers = require("../controllers/tarefas")
+const controllers = require("../controllers/responsaveis")
 const router  =  express.Router()
 const middlawares = require("../middlewares/middlewares")
 
