@@ -1,4 +1,4 @@
-let lista = []
+const Responsaveis = require("../models/responsaveis")
 
 function list(){
     return lista

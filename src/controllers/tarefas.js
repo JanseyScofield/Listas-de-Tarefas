@@ -1,11 +1,15 @@
 const services  = require("../services/tarefas")
 
 function list(req,res){
-    return res.status(200).send(services.list())
-}
+  services.list(req.query).then((tarefas) => {
+      return res.status(200).send({lista_tarefas:tarefas})
+    })
+} 
 
 function create(req,res){
-  return res.status(201).send(services.create(req.body.nome))
+  services.create(req.body).then((tarefa) => {
+    return res.status(201).send({message : "Nova tarefa adicionada."})
+  })
 }
 
  function update(req, res){

@@ -1,15 +1,18 @@
-let lista = []
+const Tarefas = require("../models/tarefas")
 
-function list(){
-    return lista
+async function list(queryParams){
+   return await Tarefas.findAll({where: queryParams})
 }
 
-function create(req){
-    lista.push(req)
+async function create(dados){
+    const novaTarefa = await Tarefas.create(dados)
 }
 
 function update(id, req){
     lista[id-1] = req;
 }
 
+function remove(){
+
+}
 module.exports = {list, create,update}
