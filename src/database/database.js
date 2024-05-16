@@ -12,6 +12,6 @@ const database  = new Sequelize(
 
 
 module.exports = database
-
 require("../models/tarefas")
-database.sync()
+require("../models/responsaveis")
+database.sync({alter : true})

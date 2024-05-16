@@ -1,7 +1,8 @@
 const database = require("../database/database")
 const Sequelize =  require("sequelize")
+const Responsavel = require("./responsaveis")
 
-const Tarefas = database.define("tarefas",{
+const Tarefa = database.define("tarefas",{
     id :{
         type : Sequelize.INTEGER,
         primaryKey : true,
@@ -10,11 +11,6 @@ const Tarefas = database.define("tarefas",{
     titulo: {
         type  : Sequelize.STRING,
         allowNull  : false
-    },
-    responsavel: {
-        type  : Sequelize.STRING,
-        allowNull : false
-
     },
     descricao:{
         type : Sequelize.STRING,
@@ -25,7 +21,8 @@ const Tarefas = database.define("tarefas",{
         allowNull : false
     }
 },{timestamp: true
-
 })
 
-module.exports = Tarefas
+Tarefa.belongsTo(Responsavel)
+
+module.exports = Tarefa

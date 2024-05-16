@@ -1,31 +1,23 @@
 const database = require("../database/database")
 const Sequelize =  require("sequelize")
 
-const Tarefas = database.define("tarefas",{
+
+const Responsavel = database.define("responsaveis",{
     id :{
         type : Sequelize.INTEGER,
         primaryKey : true,
         autoIncremente : true
     },
-    titulo: {
+    nome: {
         type  : Sequelize.STRING,
         allowNull  : false
     },
-    responsavel: {
-        type  : Sequelize.STRING,
-        allowNull : false
-
-    },
-    descricao:{
-        type : Sequelize.STRING,
-        allowNull: true
-    },
-    dataLimite:{
+    dataNascimento :{
         type : Sequelize.DATEONLY,
         allowNull : false
-    }
-},{timestamp: true
+    },
 
+},{timestamp: true
 })
 
-module.exports = Tarefas
+module.exports = Responsavel
