@@ -6,7 +6,7 @@ const Responsavel = database.define("responsaveis",{
     id :{
         type : Sequelize.INTEGER,
         primaryKey : true,
-        autoIncremente : true,
+        autoIncrement : true,
         allowNull : true
     },
     nome: {

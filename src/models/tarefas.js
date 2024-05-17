@@ -6,7 +6,7 @@ const Tarefa = database.define("tarefas",{
     id :{
         type : Sequelize.INTEGER,
         primaryKey : true,
-        autoIncremente : true
+        autoIncrement : true
     },
     titulo: {
         type  : Sequelize.STRING,
