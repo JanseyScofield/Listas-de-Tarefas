@@ -8,11 +8,12 @@ async function create(dados){
     const novaTarefa = await Tarefas.create(dados)
 }
 
-function update(id, req){
-    lista[id-1] = req;
-}
-
-function remove(){
-
+async function update(idTarefa,novosDados){
+    const tarefaEncontrada = await Tarefas.findByPk(idTarefa)
+    
+    tarefaEncontrada.titulo = novosDados.titulo
+    tarefaEncontrada.descricao = novosDados.descricao
+    tarefaEncontrada.dataLimite = novosDados.dataLimite
+    await tarefaEncontrada.save()
 }
 module.exports = {list, create,update}

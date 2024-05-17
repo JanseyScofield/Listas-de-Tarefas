@@ -13,7 +13,9 @@ function create(req,res){
 }
 
  function update(req, res){
-    return res.status(200).send(services.update())
+    services.update(req.params.id, req.body).then((tarefaEditada) =>{
+      return res.status(200).send({messagem : "Tarefa editada!"})
+    })
 }
 
 function remove(req,res){
