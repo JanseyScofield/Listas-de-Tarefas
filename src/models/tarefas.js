@@ -10,7 +10,15 @@ const Tarefa = database.define("tarefas",{
     },
     titulo: {
         type  : Sequelize.STRING,
-        allowNull  : false
+        allowNull  : false,
+        validate: { 
+            notNull : { 
+                msg: 'O campo "Título" é obrigatório.' 
+            }, 
+            notEmpty : {
+                 msg: 'O campo "Título" é inválido ou vazio.' 
+                }
+        }
     },
     descricao:{
         type : Sequelize.STRING,
@@ -18,7 +26,15 @@ const Tarefa = database.define("tarefas",{
     },
     dataLimite:{
         type : Sequelize.DATEONLY,
-        allowNull : false
+        allowNull : false,
+        validate: { 
+            notNull : { 
+                msg: 'O campo "data limite" é obrigatório.' 
+            }, 
+            notEmpty : {
+                 msg: 'O campo "data limite" é inválido ou vazio.' 
+                }
+        }
     }
 },{timestamp: true
 })
