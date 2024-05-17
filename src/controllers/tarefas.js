@@ -9,6 +9,8 @@ function list(req,res){
 function create(req,res){
   services.create(req.body).then((tarefa) => {
     return res.status(201).send({message : "Nova tarefa adicionada."})
+  }, (error) => {
+    return  res.status(500).send({message : error})
   })
 }
 
@@ -19,7 +21,9 @@ function create(req,res){
 }
 
 function remove(req,res){
-     return res.status(200).send("Hello, World")
+     services.remove(req.params.id).then((tarefaExcluida) => {
+      return res.status(200).send({message : "Tarefa excluida!"})
+     })
  }
 
 module.exports =  {list,create, update, remove}

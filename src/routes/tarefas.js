@@ -6,6 +6,6 @@ const middlawares = require("../middlewares/middlewares")
 router.get("/", controllers.list)
 router.post("/", controllers.create)
 router.put("/:id",controllers.update)
-router.delete("/:d", controllers.remove)
+router.delete("/:id", controllers.remove)
 
 module.exports = router
