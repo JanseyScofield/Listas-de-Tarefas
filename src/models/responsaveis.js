@@ -11,11 +11,27 @@ const Responsavel = database.define("responsaveis",{
     },
     nome: {
         type  : Sequelize.STRING,
-        allowNull  : false
+        allowNull  : false,
+        validate: { 
+            notNull : { 
+                msg: 'O campo "Nome" é obrigatório.' 
+            }, 
+            notEmpty : {
+                 msg: 'O campo "Nome" é inválido ou vazio.' 
+                }
+        }
     },
     dataNascimento :{
         type : Sequelize.DATEONLY,
-        allowNull : false
+        allowNull : false,
+        validate: { 
+            notNull : { 
+                msg: 'O campo "data de nascimento" é obrigatório.' 
+            }, 
+            notEmpty : {
+                 msg: 'O campo "data de nascimento" é inválido ou vazio.' 
+                }
+        }
     },
 
 },{timestamp: true
