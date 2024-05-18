@@ -4,6 +4,7 @@ const middlewares = require("../middlewares/middlewares")
 const router  =  express.Router()
 
 router.get("/", controllers.list)
+router.get("/:semtarefas", controllers.resSemTarefas)
 router.post("/", middlewares.checkNome, middlewares.checkIdade,controllers.create)
 router.put("/:id",middlewares.checkNome, middlewares.checkIdade, controllers.update)
 router.delete("/:id", controllers.remove)

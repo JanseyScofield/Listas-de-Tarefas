@@ -33,3 +33,5 @@ PUT/responsaveis/id : Edita o responsavel do id passado como paramêtro,  podend
 }
 
 DELETE/responsaveis/id : Deleta o responsavel do id passado como parâmetro.
+
+GET/responsaveis/semtarefas : Mostra todos os responsaveis que não possuem tarefas.

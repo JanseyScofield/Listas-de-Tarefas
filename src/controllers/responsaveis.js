@@ -6,6 +6,13 @@ function list(req,res){
     })
 }
 
+function resSemTarefas(req,res){
+  services.resSemTarefas().then((responsavelSemTarefas) => {
+    return res.status(200).send({listaResponsaveisSemTarefas : responsavelSemTarefas})
+  })
+}
+
+
 function create(req,res){
   services.create(req.body).then((novoResponsavel) => {
     return res.status(201).send({
@@ -27,4 +34,4 @@ function remove(req,res){
      })
  }
 
-module.exports =  {list,create, update, remove}
+module.exports =  {list,create, update, remove, resSemTarefas}

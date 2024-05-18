@@ -1,7 +1,18 @@
 const Responsaveis = require("../models/responsaveis")
+const Tarefas = require("../models/tarefas")
+const Sequelize =  require("sequelize")
 
 async function list(queryParams){
     return await Responsaveis.findAll({where : queryParams})
+}
+async function resSemTarefas(){
+    return await Responsaveis.findAll({
+        where: {
+          id: {
+            [Sequelize.Op.in]: Sequelize.literal(`(SELECT id FROM Tarefas)`)
+          }
+        }
+      })
 }
 
 async function create(dados){
@@ -22,4 +33,4 @@ async function remove(idResponsavel){
     await responsavelExcluido.destroy()
 }
 
-module.exports = {list, create,update, remove}
+module.exports = {list, create,update, remove, resSemTarefas}
