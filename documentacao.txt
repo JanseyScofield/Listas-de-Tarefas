@@ -8,7 +8,7 @@ POST/tarefas : cria uma nova tarefa
     "responsaveiID" : obrigatório
 }
 
-PUT/tarefasd/id : Edita a tarefa do id passado como paramêtro,  podendo editar apenas os campos que deseja.
+PUT/tarefas/id : Edita a tarefa do id passado como paramêtro,  podendo editar apenas os campos que deseja.
 {
     "titulo": não obrigatório,
     "descricao" : não obrigatório,
@@ -16,4 +16,20 @@ PUT/tarefasd/id : Edita a tarefa do id passado como paramêtro,  podendo editar 
     "responsaveiID" : não obrigatório
 }
 
-DELETE/tarefas/id : Deleta a tarefa do id passado com parâmetro.
+DELETE/tarefas/id : Deleta a tarefa do id passado como parâmetro.
+
+GET/responsaveis?queryparam : Lista todas os responsáveis podendo ser filtrada por algum parâmetro query.
+
+POST/responsaveis: cria um novo responsavel
+{
+    "nome" : obrigatório,
+    "dataNascimento" : obrigatório
+}
+
+PUT/responsaveis/id : Edita o responsavel do id passado como paramêtro,  podendo editar apenas os campos que deseja.
+{
+    "nome" : não obrigatório,
+    "dataNascimento" : não obrigatório
+}
+
+DELETE/responsaveis/id : Deleta o responsavel do id passado como parâmetro.
