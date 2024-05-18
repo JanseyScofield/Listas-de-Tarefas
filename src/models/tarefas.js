@@ -29,7 +29,7 @@ const Tarefa = database.define("tarefas",{
         allowNull : false,
         validate: { 
             notNull : { 
-                msg: 'O campo "data limite" é obrigatório.' 
+                msg: 'O campo "data limte" é obrigatório.' 
             }, 
             notEmpty : {
                  msg: 'O campo "data limite" é inválido ou vazio.' 
@@ -39,6 +39,10 @@ const Tarefa = database.define("tarefas",{
 },{timestamp: true
 })
 
-Tarefa.belongsTo(Responsavel)
-
+Tarefa.belongsTo(Responsavel, {
+    foreignKey: {
+      allowNull: false, // Define que o campo não pode ser nulo
+    },
+  })
+  
 module.exports = Tarefa
