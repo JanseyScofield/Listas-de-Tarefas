@@ -8,9 +8,10 @@ function list(req,res){
 
 function create(req,res){
   services.create(req.body).then((tarefa) => {
-    return res.status(201).send({message : "Nova tarefa adicionada."})
-  }, (error) => {
-    return  res.status(500).send({message : error})
+    return res.status(201).send({
+      message : "Nova tarefa adicionada.",
+      tarefa : tarefa
+    })
   })
 }
 

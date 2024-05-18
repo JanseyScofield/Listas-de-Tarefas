@@ -6,6 +6,7 @@ async function list(queryParams){
 
 async function create(dados){
     const novaTarefa = await Tarefas.create(dados)
+    return novaTarefa
 }
 
 async function update(idTarefa,novosDados){
