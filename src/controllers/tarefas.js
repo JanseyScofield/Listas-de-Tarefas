@@ -5,6 +5,11 @@ function list(req,res){
       return res.status(200).send({lista_tarefas:tarefas})
     })
 } 
+function tarefasDe(req,res){
+  services.tarefasDe(req.query.id).then((tarefasDe) => {
+    return res.status(200).send({lista_tarefas:tarefasDe})
+  })
+}
 
 function create(req,res){
   services.create(req.body).then((tarefa) => {
@@ -27,4 +32,4 @@ function remove(req,res){
      })
  }
 
-module.exports =  {list,create, update, remove}
+module.exports =  {list,create, update, remove, tarefasDe}

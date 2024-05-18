@@ -1,7 +1,20 @@
 const Tarefas = require("../models/tarefas")
+const Responsavel = require("../models/responsaveis")
+const Sequelize = require("sequelize")
 
 async function list(queryParams){
    return await Tarefas.findAll({where: queryParams})
+}
+
+async function tarefasDe(idResponsavel){
+    return await Tarefas.findAll({
+        include: [{
+          model: Responsavel,
+          where: {
+            respnsaveiId: Sequelize.col('Tarefas.id')
+          }
+        }]
+      })
 }
 
 async function create(dados){
@@ -22,4 +35,4 @@ async function remove(idTarefa){
     const tarefaExcluida = await Tarefas.findByPk(idTarefa)
     await tarefaExcluida.destroy()
 }
-module.exports = {list, create,update, remove}
+module.exports = {list, create,update, remove, tarefasDe}
