@@ -17,4 +17,9 @@ async function update(idResponsavel, novosDados){
     await responsavelEncontrado.save()
 }
 
-module.exports = {list, create,update}
+async function remove(idResponsavel){
+    const responsavelExcluido = await Responsaveis.findByPk(idResponsavel)
+    await responsavelExcluido.destroy()
+}
+
+module.exports = {list, create,update, remove}

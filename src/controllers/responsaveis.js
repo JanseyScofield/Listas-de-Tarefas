@@ -1,8 +1,8 @@
 const services  = require("../services/responsaveis")
 
 function list(req,res){
-    services.list(req.params.id).then((responsavel) => {
-      return res.status(200).send({listaResponsaveis : responsavel}, {responsavel})
+    services.list(req.query).then((responsavel) => {
+      return res.status(200).send({listaResponsaveis : responsavel})
     })
 }
 
@@ -17,12 +17,14 @@ function create(req,res){
 
  function update(req, res){
     services.update(req.params.id, req.body).then((responsavelEditado) => {
-      return res.send(200).send({message : "Tarefa editada!"})
+      return res.send(200).send({message : "Responsável editado!"})
     })
 }
 
 function remove(req,res){
-     return res.status(200).send("Hello, World")
+     services.remove(req.params.id).then((responsavelExcluido) =>{
+      return res.status(200).send({message : "Responsável excluido."})
+     })
  }
 
 module.exports =  {list,create, update, remove}
